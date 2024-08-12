@@ -5,6 +5,9 @@ import * as Environment from '@src/libs/Environment/Environment';
 import type {UserMetadata} from '@src/types/onyx';
 import type NavigationProperties from './types';
 
+const UNMASK = 'fs-unmask';
+const EXCLUDE = 'fs-exclude';
+
 // Placeholder Browser API does not support Manual Page definition
 class FSPage {
     private pageName;
@@ -31,7 +34,8 @@ const FS = {
         new Promise((resolve) => {
             Environment.getEnvironment().then((envName: string) => {
                 if (CONST.ENVIRONMENT.PRODUCTION !== envName) {
-                    return;
+                    // TODO DEV only
+                    // return;
                 }
                 // Initialised via HEAD snippet
                 if (!isInitialized()) {
@@ -59,7 +63,8 @@ const FS = {
         try {
             Environment.getEnvironment().then((envName: string) => {
                 if (CONST.ENVIRONMENT.PRODUCTION !== envName) {
-                    return;
+                    // TODO DEV only
+                    // return;
                 }
                 FS.onReady().then(() => {
                     FS.consent(true);
@@ -100,4 +105,4 @@ const FS = {
 };
 
 export default FS;
-export {FSPage};
+export {FSPage, UNMASK, EXCLUDE};

@@ -6,6 +6,8 @@ import * as Environment from '@src/libs/Environment/Environment';
 import ONYXKEYS from '@src/ONYXKEYS';
 import type {UserMetadata} from '@src/types/onyx';
 
+const UNMASK = 'fs-unmask';
+const EXCLUDE = 'fs-exclude';
 /**
  * Fullstory React-Native lib adapter
  * Proxy function calls to React-Native lib
@@ -18,7 +20,8 @@ const FS = {
         Environment.getEnvironment().then((envName: string) => {
             // We only want to start fullstory if the app is running in production
             if (envName !== CONST.ENVIRONMENT.PRODUCTION) {
-                return;
+                // TODO DEV only
+                // return;
             }
             FullStory.restart();
             const [session] = useOnyx(ONYXKEYS.USER_METADATA);
@@ -70,4 +73,4 @@ const FS = {
 };
 
 export default FS;
-export {FSPage};
+export {FSPage, UNMASK, EXCLUDE};

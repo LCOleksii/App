@@ -6,6 +6,7 @@ import PressableWithoutFeedback from '@components/Pressable/PressableWithoutFeed
 import {ShowContextMenuContext, showContextMenuForReport} from '@components/ShowContextMenuContext';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import * as ReportUtils from '@libs/ReportUtils';
 import CONST from '@src/CONST';
 
@@ -32,7 +33,7 @@ function PreRenderer({TDefaultRenderer, onPressIn, onPressOut, onLongPress, ...d
     const isLast = defaultRendererProps.renderIndex === defaultRendererProps.renderLength - 1;
 
     return (
-        <View style={isLast ? styles.mt2 : styles.mv2}>
+        <View fsClass={UNMASK} style={isLast ? styles.mt2 : styles.mv2}>
             <ShowContextMenuContext.Consumer>
                 {({anchor, report, reportNameValuePairs, action, checkIfContextMenuActive}) => (
                     <PressableWithoutFeedback

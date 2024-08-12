@@ -10,6 +10,7 @@ import Text from '@components/Text';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
 import * as Connections from '@libs/actions/connections';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@navigation/Navigation';
 import AccessOrNotFoundWrapper from '@pages/workspace/AccessOrNotFoundWrapper';
 import type {WithPolicyConnectionsProps} from '@pages/workspace/withPolicyConnections';
@@ -27,7 +28,10 @@ function Footer({isTaxEnabled, isLocationsEnabled}: {isTaxEnabled: boolean; isLo
     }
 
     return (
-        <View style={[styles.gap2, styles.mt2]}>
+        <View
+            fsClass={UNMASK}
+            style={[styles.gap2, styles.mt2]}
+        >
             {isTaxEnabled && <Text style={styles.mutedNormalTextLabel}>{translate('workspace.qbo.outOfPocketTaxEnabledDescription')}</Text>}
             {isLocationsEnabled && <Text style={styles.mutedNormalTextLabel}>{translate('workspace.qbo.outOfPocketLocationEnabledDescription')}</Text>}
         </View>
@@ -114,7 +118,10 @@ function QuickbooksOutOfPocketExpenseEntitySelectPage({policy}: WithPolicyConnec
                 testID={QuickbooksOutOfPocketExpenseEntitySelectPage.displayName}
             >
                 <HeaderWithBackButton title={translate('workspace.accounting.exportAs')} />
-                <View style={styles.flex1}>
+                <View
+                    fsClass={UNMASK}
+                    style={styles.flex1}
+                >
                     <SelectionList
                         containerStyle={[styles.flexReset, styles.flexGrow0, styles.flexShrink0, styles.flexBasisAuto]}
                         sections={sections}

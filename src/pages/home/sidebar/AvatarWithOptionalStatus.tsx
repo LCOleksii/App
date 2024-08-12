@@ -2,6 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import Text from '@components/Text';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import ProfileAvatarWithIndicator from './ProfileAvatarWithIndicator';
 
 type AvatarWithOptionalStatusProps = {
@@ -16,10 +17,13 @@ function AvatarWithOptionalStatus({emojiStatus = '', isSelected = false}: Avatar
     const styles = useThemeStyles();
 
     return (
-        <View style={styles.sidebarStatusAvatarContainer}>
+        <View
+            fsClass={UNMASK}
+            style={styles.sidebarStatusAvatarContainer}
+        >
             <ProfileAvatarWithIndicator isSelected={isSelected} />
-            <View style={[styles.sidebarStatusAvatar]}>
-                <View>
+            <View fsClass={UNMASK} style={[styles.sidebarStatusAvatar]}>
+                <View fsClass={UNMASK}>
                     <Text
                         style={styles.emojiStatusLHN}
                         numberOfLines={1}

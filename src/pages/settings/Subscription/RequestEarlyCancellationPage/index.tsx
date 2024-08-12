@@ -45,8 +45,8 @@ function RequestEarlyCancellationPage() {
 
     const manualCancellationContent = useMemo(
         () => (
-            <View style={[styles.flexGrow1, styles.justifyContentBetween, styles.mh5]}>
-                <View>
+            <View fsClass={UNMASK} style={[styles.flexGrow1, styles.justifyContentBetween, styles.mh5]}>
+                <View fsClass={UNMASK}>
                     <Text style={styles.textHeadline}>{translate('subscription.requestEarlyCancellation.requestSubmitted.title')}</Text>
                     <Text style={[styles.mt1, styles.textNormalThemeText]}>
                         {translate('subscription.requestEarlyCancellation.requestSubmitted.subtitle.part1')}
@@ -69,8 +69,8 @@ function RequestEarlyCancellationPage() {
 
     const automaticCancellationContent = useMemo(
         () => (
-            <View style={[styles.flexGrow1, styles.justifyContentBetween, styles.mh5]}>
-                <View>
+            <View fsClass={UNMASK} style={[styles.flexGrow1, styles.justifyContentBetween, styles.mh5]}>
+                <View fsClass={UNMASK}>
                     <Text style={styles.textHeadline}>{translate('subscription.requestEarlyCancellation.subscriptionCanceled.title')}</Text>
                     <Text style={[styles.mt1, styles.textNormalThemeText]}>{translate('subscription.requestEarlyCancellation.subscriptionCanceled.subtitle')}</Text>
                     <Text style={[styles.mv4, styles.textNormalThemeText]}>{translate('subscription.requestEarlyCancellation.subscriptionCanceled.info')}</Text>

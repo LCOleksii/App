@@ -21,6 +21,7 @@ import Tooltip from '@components/Tooltip';
 import useLocalize from '@hooks/useLocalize';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@libs/Navigation/Navigation';
 import * as OptionsListUtils from '@libs/OptionsListUtils';
 import * as ReportUtils from '@libs/ReportUtils';
@@ -193,7 +194,7 @@ function HeaderView({report, personalDetails, parentReport, parentReportAction, 
                                         </OfflineWithFeedback>
                                     )}
                                     <View
-                                        fsClass="fs-unmask"
+                                        fsClass={UNMASK}
                                         style={[styles.flex1, styles.flexColumn]}
                                     >
                                         <CaretWrapper>

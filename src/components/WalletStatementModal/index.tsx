@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import {withOnyx} from 'react-native-onyx';
 import FullScreenLoadingIndicator from '@components/FullscreenLoadingIndicator';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@libs/Navigation/Navigation';
 import * as Report from '@userActions/Report';
 import CONST from '@src/CONST';
@@ -39,7 +40,7 @@ function WalletStatementModal({statementPageURL, session}: WalletStatementProps)
     return (
         <>
             {isLoading && <FullScreenLoadingIndicator />}
-            <View style={[styles.flex1]}>
+            <View fsClass={UNMASK} style={[styles.flex1]}>
                 <iframe
                     src={`${statementPageURL}&authToken=${authToken}`}
                     title="Statements"

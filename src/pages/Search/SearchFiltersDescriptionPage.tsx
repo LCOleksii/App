@@ -12,6 +12,7 @@ import useAutoFocusInput from '@hooks/useAutoFocusInput';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
 import {updateAdvancedFilters} from '@libs/actions/Search';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@libs/Navigation/Navigation';
 import CONST from '@src/CONST';
 import ONYXKEYS from '@src/ONYXKEYS';
@@ -52,7 +53,7 @@ function SearchFiltersDescriptionPage() {
                     submitButtonText={translate('common.save')}
                     enabledWhenOffline
                 >
-                    <View style={styles.mb5}>
+                    <View fsClass={UNMASK} style={styles.mb5}>
                         <InputWrapper
                             InputComponent={TextInput}
                             inputID={INPUT_IDS.DESCRIPTION}

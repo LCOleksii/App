@@ -4,6 +4,7 @@ import useLocalize from '@hooks/useLocalize';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
 import useWindowDimensions from '@hooks/useWindowDimensions';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@libs/Navigation/Navigation';
 import ROUTES from '@src/ROUTES';
 import type ApprovalWorkflow from '@src/types/onyx/ApprovalWorkflow';
@@ -43,9 +44,9 @@ function ApprovalWorkflowSection({approvalWorkflow, policyId}: ApprovalWorkflowS
             onPress={openApprovalsEdit}
             accessibilityLabel={translate('workflowsPage.addApprovalsTitle')}
         >
-            <View style={[styles.flex1]}>
+            <View fsClass={UNMASK} style={[styles.flex1]}>
                 {approvalWorkflow.isDefault && (
-                    <View style={[styles.flexRow, styles.mb4, styles.alignItemsCenter, styles.pb1, styles.pt1]}>
+                    <View fsClass={UNMASK} style={[styles.flexRow, styles.mb4, styles.alignItemsCenter, styles.pb1, styles.pt1]}>
                         <Icon
                             src={Expensicons.Lightbulb}
                             fill={theme.icon}
@@ -76,8 +77,8 @@ function ApprovalWorkflowSection({approvalWorkflow, policyId}: ApprovalWorkflowS
 
                 {approvalWorkflow.approvers.map((approver, index) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <View key={`approver-${approver.email}-${index}`}>
-                        <View style={styles.workflowApprovalVerticalLine} />
+                    <View fsClass={UNMASK} key={`approver-${approver.email}-${index}`}>
+                        <View fsClass={UNMASK} style={styles.workflowApprovalVerticalLine} />
                         <MenuItem
                             title={approverTitle(index)}
                             style={styles.p0}

@@ -10,6 +10,7 @@ import useActiveWorkspaceFromNavigationState from '@hooks/useActiveWorkspaceFrom
 import useLocalize from '@hooks/useLocalize';
 import {useReportIDs} from '@hooks/useReportIDs';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import * as Policy from '@userActions/Policy/Policy';
 import CONST from '@src/CONST';
 import ONYXKEYS from '@src/ONYXKEYS';
@@ -55,6 +56,7 @@ function SidebarLinksData({insets, isLoadingApp = true, onLinkClick, priorityMod
 
     return (
         <View
+            fsClass={UNMASK}
             accessibilityElementsHidden={!isFocused}
             collapsable={false}
             accessibilityLabel={translate('sidebarScreen.listOfChats')}

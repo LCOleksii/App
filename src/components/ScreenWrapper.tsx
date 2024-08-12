@@ -15,6 +15,7 @@ import useTackInputFocus from '@hooks/useTackInputFocus';
 import useThemeStyles from '@hooks/useThemeStyles';
 import useWindowDimensions from '@hooks/useWindowDimensions';
 import * as Browser from '@libs/Browser';
+import {UNMASK} from '@libs/Fullstory';
 import type {AuthScreensParamList, RootStackParamList} from '@libs/Navigation/types';
 import toggleTestToolsModal from '@userActions/TestTool';
 import CONST from '@src/CONST';
@@ -251,7 +252,7 @@ function ScreenWrapper(
                             testID={testID}
                         >
                             <View
-                                fsClass="fs-unmask"
+                                fsClass={UNMASK}
                                 style={[styles.flex1, paddingStyle, style]}
                                 // eslint-disable-next-line react/jsx-props-no-spreading
                                 {...keyboardDissmissPanResponder.panHandlers}

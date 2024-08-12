@@ -9,6 +9,7 @@ import useResponsiveLayout from '@hooks/useResponsiveLayout';
 import useStyleUtils from '@hooks/useStyleUtils';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import ControlSelection from '@libs/ControlSelection';
 import convertToLTR from '@libs/convertToLTR';
 import * as DeviceCapabilities from '@libs/DeviceCapabilities';
@@ -524,7 +525,7 @@ function MenuItem(
     return (
         <View onBlur={onBlur}>
             {!!label && !isLabelHoverable && (
-                <View style={[styles.ph5, labelStyle]}>
+                <View fsClass={UNMASK} style={[styles.ph5, labelStyle]}>
                     <Text style={StyleUtils.combineStyles([styles.sidebarLinkText, styles.optionAlternateText, styles.textLabelSupporting, styles.pre])}>{label}</Text>
                 </View>
             )}
@@ -537,7 +538,7 @@ function MenuItem(
                 shiftVertical={tooltipShiftVertical}
                 shouldAutoDismiss
             >
-                <View>
+                <View fsClass={UNMASK}>
                     <Hoverable>
                         {(isHovered) => (
                             <PressableWithSecondaryInteraction
@@ -570,15 +571,15 @@ function MenuItem(
                                 {({pressed}) => (
                                     <View style={[styles.flex1]}>
                                         <View style={[styles.flexRow]}>
-                                            <View style={[styles.flexColumn, styles.flex1]}>
+                                            <View fsClass={UNMASK} style={[styles.flexColumn, styles.flex1]}>
                                                 {!!label && isLabelHoverable && (
-                                                    <View style={[icon ? styles.mb2 : null, labelStyle]}>
+                                                    <View fsClass={UNMASK} style={[icon ? styles.mb2 : null, labelStyle]}>
                                                         <Text style={StyleUtils.combineStyles([styles.sidebarLinkText, styles.optionAlternateText, styles.textLabelSupporting, styles.pre])}>
                                                             {label}
                                                         </Text>
                                                     </View>
                                                 )}
-                                                <View style={[styles.flexRow, styles.pointerEventsAuto, disabled && !shouldUseDefaultCursorWhenDisabled && styles.cursorDisabled]}>
+                                                <View fsClass={UNMASK} style={[styles.flexRow, styles.pointerEventsAuto, disabled && !shouldUseDefaultCursorWhenDisabled && styles.cursorDisabled]}>
                                                     {!!icon && Array.isArray(icon) && (
                                                         <MultipleAvatars
                                                             isHovered={isHovered}
@@ -593,10 +594,10 @@ function MenuItem(
                                                         />
                                                     )}
                                                     {!icon && shouldPutLeftPaddingWhenNoIcon && (
-                                                        <View style={[styles.popoverMenuIcon, iconStyles, StyleUtils.getAvatarWidthStyle(avatarSize)]} />
+                                                        <View fsClass={UNMASK} style={[styles.popoverMenuIcon, iconStyles, StyleUtils.getAvatarWidthStyle(avatarSize)]} />
                                                     )}
                                                     {icon && !Array.isArray(icon) && (
-                                                        <View style={[styles.popoverMenuIcon, iconStyles, StyleUtils.getAvatarWidthStyle(avatarSize)]}>
+                                                        <View fsClass={UNMASK} style={[styles.popoverMenuIcon, iconStyles, StyleUtils.getAvatarWidthStyle(avatarSize)]}>
                                                             {typeof icon !== 'string' &&
                                                                 iconType === CONST.ICON_TYPE_ICON &&
                                                                 (!shouldShowLoadingSpinnerIcon ? (
@@ -648,7 +649,7 @@ function MenuItem(
                                                         </View>
                                                     )}
                                                     {secondaryIcon && (
-                                                        <View style={[styles.popoverMenuIcon, iconStyles, isSecondaryIconHoverable && StyleUtils.getBackgroundAndBorderStyle(theme.border)]}>
+                                                        <View fsClass={UNMASK} style={[styles.popoverMenuIcon, iconStyles, isSecondaryIconHoverable && StyleUtils.getBackgroundAndBorderStyle(theme.border)]}>
                                                             <Icon
                                                                 contentFit={contentFit}
                                                                 src={secondaryIcon}
@@ -662,6 +663,7 @@ function MenuItem(
                                                         </View>
                                                     )}
                                                     <View
+                                                        fsClass={UNMASK}
                                                         style={[
                                                             styles.justifyContentCenter,
                                                             styles.flex1,
@@ -678,9 +680,9 @@ function MenuItem(
                                                             </Text>
                                                         )}
                                                         {(!!title || !!shouldShowTitleIcon) && (
-                                                            <View style={[styles.flexRow, styles.alignItemsCenter, styles.mw100]}>
+                                                            <View fsClass={UNMASK} style={[styles.flexRow, styles.alignItemsCenter, styles.mw100]}>
                                                                 {!!title && (shouldRenderAsHTML || (shouldParseTitle && !!html.length)) && (
-                                                                    <View style={styles.renderHTMLTitle}>
+                                                                    <View fsClass={UNMASK} style={styles.renderHTMLTitle}>
                                                                         <RenderHTML html={processedTitle} />
                                                                     </View>
                                                                 )}
@@ -694,7 +696,7 @@ function MenuItem(
                                                                     </Text>
                                                                 )}
                                                                 {shouldShowTitleIcon && titleIcon && (
-                                                                    <View style={[styles.ml2]}>
+                                                                    <View fsClass={UNMASK} style={[styles.ml2]}>
                                                                         <Icon
                                                                             src={titleIcon}
                                                                             fill={theme.iconSuccessFill}
@@ -712,7 +714,7 @@ function MenuItem(
                                                             </Text>
                                                         )}
                                                         {!!furtherDetails && (
-                                                            <View style={[styles.flexRow, styles.mt1, styles.alignItemsCenter]}>
+                                                            <View fsClass={UNMASK} style={[styles.flexRow, styles.mt1, styles.alignItemsCenter]}>
                                                                 {!!furtherDetailsIcon && (
                                                                     <Icon
                                                                         src={furtherDetailsIcon}
@@ -729,7 +731,7 @@ function MenuItem(
                                                                 </Text>
                                                             </View>
                                                         )}
-                                                        {!!furtherDetailsComponent && <View style={[styles.flexRow, styles.alignItemsCenter]}>{furtherDetailsComponent}</View>}
+                                                        {!!furtherDetailsComponent && <View fsClass={UNMASK} style={[styles.flexRow, styles.alignItemsCenter]}>{furtherDetailsComponent}</View>}
                                                         {titleComponent}
                                                     </View>
                                                 </View>

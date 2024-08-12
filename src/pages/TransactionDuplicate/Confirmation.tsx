@@ -15,6 +15,7 @@ import {ShowContextMenuContext} from '@components/ShowContextMenuContext';
 import Text from '@components/Text';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@libs/Navigation/Navigation';
 import type {TransactionDuplicateNavigatorParamList} from '@libs/Navigation/types';
 import variables from '@styles/variables';
@@ -63,10 +64,10 @@ function Confirmation() {
         >
             {({safeAreaPaddingBottomStyle}) => (
                 <FullPageNotFoundView shouldShow={!reviewDuplicates}>
-                    <View style={[styles.flex1, safeAreaPaddingBottomStyle]}>
+                    <View fsClass={UNMASK} style={[styles.flex1, safeAreaPaddingBottomStyle]}>
                         <HeaderWithBackButton title={translate('iou.reviewDuplicates')} />
                         <ScrollView>
-                            <View style={[styles.ph5, styles.pb8]}>
+                            <View fsClass={UNMASK} style={[styles.ph5, styles.pb8]}>
                                 <Text
                                     family="EXP_NEW_KANSAS_MEDIUM"
                                     fontSize={variables.fontSizeLarge}

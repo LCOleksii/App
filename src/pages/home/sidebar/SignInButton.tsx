@@ -4,6 +4,7 @@ import Button from '@components/Button';
 import PressableWithoutFeedback from '@components/Pressable/PressableWithoutFeedback';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import * as Session from '@userActions/Session';
 import CONST from '@src/CONST';
 
@@ -17,7 +18,10 @@ function SignInButton() {
             role={CONST.ROLE.BUTTON}
             onPress={() => Session.signOutAndRedirectToSignIn()}
         >
-            <View style={styles.signInButtonAvatar}>
+            <View
+                fsClass={UNMASK}
+                style={styles.signInButtonAvatar}
+            >
                 <Button
                     medium
                     success

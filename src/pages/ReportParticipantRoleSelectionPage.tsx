@@ -9,6 +9,7 @@ import RadioListItem from '@components/SelectionList/RadioListItem';
 import type {ListItem} from '@components/SelectionList/types';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import * as Report from '@libs/actions/Report';
 import Navigation from '@navigation/Navigation';
 import type {ParticipantsNavigatorParamList} from '@navigation/types';
@@ -63,7 +64,10 @@ function ReportParticipantRoleSelectionPage({report, route}: ReportParticipantRo
                 title={translate('common.role')}
                 onBackButtonPress={() => Navigation.goBack(backTo)}
             />
-            <View style={[styles.containerWithSpaceBetween, styles.pointerEventsBoxNone]}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.containerWithSpaceBetween, styles.pointerEventsBoxNone]}
+            >
                 <SelectionList
                     sections={[{data: items}]}
                     ListItem={RadioListItem}

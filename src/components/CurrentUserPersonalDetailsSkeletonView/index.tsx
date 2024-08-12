@@ -6,6 +6,7 @@ import SkeletonViewContentLoader from '@components/SkeletonViewContentLoader';
 import useStyleUtils from '@hooks/useStyleUtils';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import variables from '@styles/variables';
 import CONST from '@src/CONST';
 
@@ -28,7 +29,7 @@ function CurrentUserPersonalDetailsSkeletonView({shouldAnimate = true, avatarSiz
     const spaceBetweenHeadlineAndLabel = styles.mt1.marginTop + (variables.lineHeightXXLarge - variables.fontSizeXLarge) / 2;
     const labelSize = variables.fontSizeLabel;
     return (
-        <View style={styles.avatarSectionWrapperSkeleton}>
+        <View fsClass={UNMASK} style={styles.avatarSectionWrapperSkeleton}>
             <SkeletonViewContentLoader
                 animate={shouldAnimate}
                 backgroundColor={theme.skeletonLHNIn}

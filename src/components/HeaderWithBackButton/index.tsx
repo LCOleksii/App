@@ -15,6 +15,7 @@ import useStyleUtils from '@hooks/useStyleUtils';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
 import useThrottledButtonState from '@hooks/useThrottledButtonState';
+import {UNMASK} from '@libs/Fullstory';
 import getButtonState from '@libs/getButtonState';
 import Navigation from '@libs/Navigation/Navigation';
 import variables from '@styles/variables';
@@ -78,12 +79,12 @@ function HeaderWithBackButton({
             return (
                 <>
                     {/* Reserves as much space for the middleContent as possible */}
-                    <View style={styles.flexGrow1} />
+                    <View fsClass={UNMASK} style={styles.flexGrow1} />
                     {/* Uses absolute positioning so that it's always centered instead of being affected by the
                     presence or absence of back/close buttons to the left/right of it */}
                     <View style={styles.headerProgressBarContainer}>
                         <View style={styles.headerProgressBar}>
-                            <View style={[{width: `${progressBarPercentage}%`}, styles.headerProgressBarFill]} />
+                            <View fsClass={UNMASK} style={[{width: `${progressBarPercentage}%`}, styles.headerProgressBarFill]} />
                         </View>
                     </View>
                 </>
@@ -144,7 +145,7 @@ function HeaderWithBackButton({
                 style,
             ]}
         >
-            <View style={[styles.dFlex, styles.flexRow, styles.alignItemsCenter, styles.flexGrow1, styles.justifyContentBetween, styles.overflowHidden]}>
+            <View fsClass={UNMASK} style={[styles.dFlex, styles.flexRow, styles.alignItemsCenter, styles.flexGrow1, styles.justifyContentBetween, styles.overflowHidden]}>
                 {shouldShowBackButton && (
                     <Tooltip text={translate('common.back')}>
                         <PressableWithoutFeedback
@@ -189,7 +190,7 @@ function HeaderWithBackButton({
                     />
                 )}
                 {middleContent}
-                <View style={[styles.reportOptions, styles.flexRow, styles.pr5, styles.alignItemsCenter]}>
+                <View fsClass={UNMASK} style={[styles.reportOptions, styles.flexRow, styles.pr5, styles.alignItemsCenter]}>
                     {children}
                     {shouldShowDownloadButton && (
                         <Tooltip text={translate('common.download')}>

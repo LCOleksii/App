@@ -19,6 +19,7 @@ import useWindowDimensions from '@hooks/useWindowDimensions';
 import * as Browser from '@libs/Browser';
 import canFocusInputOnScreenFocus from '@libs/canFocusInputOnScreenFocus';
 import * as EmojiUtils from '@libs/EmojiUtils';
+import {UNMASK} from '@libs/Fullstory';
 import isEnterWhileComposition from '@libs/KeyboardShortcut/isEnterWhileComposition';
 import * as ReportUtils from '@libs/ReportUtils';
 import CONST from '@src/CONST';
@@ -251,7 +252,10 @@ function EmojiPickerMenu({onEmojiSelected, activeEmoji}: EmojiPickerMenuProps, r
 
             if ('header' in item && item.header) {
                 return (
-                    <View style={[styles.emojiHeaderContainer, target === 'StickyHeader' ? styles.stickyHeaderEmoji(shouldUseNarrowLayout, windowWidth) : undefined]}>
+                    <View
+                        fsClass={UNMASK}
+                        style={[styles.emojiHeaderContainer, target === 'StickyHeader' ? styles.stickyHeaderEmoji(shouldUseNarrowLayout, windowWidth) : undefined]}
+                    >
                         <Text style={styles.textLabelSupporting}>{translate(`emojiPicker.headers.${code}` as TranslationPaths)}</Text>
                     </View>
                 );
@@ -306,6 +310,7 @@ function EmojiPickerMenu({onEmojiSelected, activeEmoji}: EmojiPickerMenuProps, r
 
     return (
         <View
+            fsClass={UNMASK}
             style={[
                 styles.emojiPickerContainer,
                 StyleUtils.getEmojiPickerStyle(shouldUseNarrowLayout),
@@ -313,7 +318,10 @@ function EmojiPickerMenu({onEmojiSelected, activeEmoji}: EmojiPickerMenuProps, r
                 arePointerEventsDisabled ? styles.pointerEventsNone : styles.pointerEventsAuto,
             ]}
         >
-            <View style={[styles.ph4, styles.pb3, styles.pt2]}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.ph4, styles.pb3, styles.pt2]}
+            >
                 <TextInput
                     label={translate('common.search')}
                     accessibilityLabel={translate('common.search')}

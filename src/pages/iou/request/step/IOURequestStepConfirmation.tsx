@@ -16,6 +16,7 @@ import useThemeStyles from '@hooks/useThemeStyles';
 import useWindowDimensions from '@hooks/useWindowDimensions';
 import * as DeviceCapabilities from '@libs/DeviceCapabilities';
 import * as FileUtils from '@libs/fileDownload/FileUtils';
+import {UNMASK} from '@libs/Fullstory';
 import getCurrentPosition from '@libs/getCurrentPosition';
 import * as IOUUtils from '@libs/IOUUtils';
 import Log from '@libs/Log';
@@ -580,7 +581,10 @@ function IOURequestStepConfirmation({
             testID={IOURequestStepConfirmation.displayName}
         >
             {({safeAreaPaddingBottomStyle}) => (
-                <View style={[styles.flex1, safeAreaPaddingBottomStyle]}>
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.flex1, safeAreaPaddingBottomStyle]}
+                >
                     <HeaderWithBackButton
                         title={headerTitle}
                         onBackButtonPress={navigateBack}

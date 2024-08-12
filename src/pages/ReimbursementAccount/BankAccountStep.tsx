@@ -17,6 +17,7 @@ import TextLink from '@components/TextLink';
 import useLocalize from '@hooks/useLocalize';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import getPlaidDesktopMessage from '@libs/getPlaidDesktopMessage';
 import Navigation from '@libs/Navigation/Navigation';
 import variables from '@styles/variables';
@@ -115,7 +116,10 @@ function BankAccountStep({
             includeSafeAreaPaddingBottom={false}
             testID={BankAccountStep.displayName}
         >
-            <View style={[styles.flex1, styles.justifyContentBetween]}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.flex1, styles.justifyContentBetween]}
+            >
                 <HeaderWithBackButton
                     title={translate('workspace.common.connectBankAccount')}
                     subtitle={policyName}
@@ -129,11 +133,17 @@ function BankAccountStep({
                         icon={Illustrations.MoneyWings}
                         title={translate('workspace.bankAccount.streamlinePayments')}
                     >
-                        <View style={styles.mv3}>
+                        <View
+                            fsClass={UNMASK}
+                            style={styles.mv3}
+                        >
                             <Text>{translate('bankAccount.toGetStarted')}</Text>
                         </View>
                         {!!plaidDesktopMessage && (
-                            <View style={[styles.mv3, styles.flexRow, styles.justifyContentBetween]}>
+                            <View
+                                fsClass={UNMASK}
+                                style={[styles.mv3, styles.flexRow, styles.justifyContentBetween]}
+                            >
                                 <TextLink onPress={() => Link.openExternalLinkWithToken(bankAccountRoute)}>{translate(plaidDesktopMessage)}</TextLink>
                             </View>
                         )}
@@ -154,7 +164,10 @@ function BankAccountStep({
                             success
                             innerStyles={[styles.pr2, styles.pl4, styles.h13]}
                         />
-                        <View style={styles.mv3}>
+                        <View
+                            fsClass={UNMASK}
+                            style={styles.mv3}
+                        >
                             <MenuItem
                                 icon={Expensicons.Connect}
                                 title={translate('bankAccount.connectManually')}
@@ -169,7 +182,10 @@ function BankAccountStep({
                         </View>
                     </Section>
                     {!user?.validated && (
-                        <View style={[styles.flexRow, styles.alignItemsCenter, styles.m4]}>
+                        <View
+                            fsClass={UNMASK}
+                            style={[styles.flexRow, styles.alignItemsCenter, styles.m4]}
+                        >
                             <Icon
                                 src={Expensicons.Exclamation}
                                 fill={theme.danger}
@@ -197,7 +213,10 @@ function BankAccountStep({
                             </Text>
                         </View>
                     )}
-                    <View style={[styles.mv0, styles.mh5, styles.flexRow, styles.justifyContentBetween]}>
+                    <View
+                        fsClass={UNMASK}
+                        style={[styles.mv0, styles.mh5, styles.flexRow, styles.justifyContentBetween]}
+                    >
                         <TextLink href={CONST.PRIVACY_URL}>{translate('common.privacy')}</TextLink>
                         <PressableWithoutFeedback
                             onPress={() => Link.openExternalLink('https://community.expensify.com/discussion/5677/deep-dive-how-expensify-protects-your-information/')}
@@ -207,7 +226,10 @@ function BankAccountStep({
                             <TextLink href="https://community.expensify.com/discussion/5677/deep-dive-how-expensify-protects-your-information/">
                                 {translate('bankAccount.yourDataIsSecure')}
                             </TextLink>
-                            <View style={styles.ml1}>
+                            <View
+                                fsClass={UNMASK}
+                                style={styles.ml1}
+                            >
                                 <Icon
                                     src={Expensicons.Lock}
                                     fill={theme.link}

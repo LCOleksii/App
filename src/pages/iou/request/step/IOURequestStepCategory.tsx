@@ -14,6 +14,7 @@ import useLocalize from '@hooks/useLocalize';
 import useNetwork from '@hooks/useNetwork';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@libs/Navigation/Navigation';
 import * as OptionsListUtils from '@libs/OptionsListUtils';
 import * as ReportActionsUtils from '@libs/ReportActionsUtils';
@@ -168,7 +169,10 @@ function IOURequestStepCategory({
                 />
             )}
             {shouldShowEmptyState && (
-                <View style={[styles.flex1]}>
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.flex1]}
+                >
                     <WorkspaceEmptyStateSection
                         shouldStyleAsCard={false}
                         icon={Illustrations.EmptyStateExpenses}

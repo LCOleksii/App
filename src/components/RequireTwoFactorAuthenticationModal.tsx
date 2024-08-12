@@ -4,6 +4,7 @@ import useLocalize from '@hooks/useLocalize';
 import useResponsiveLayout from '@hooks/useResponsiveLayout';
 import useStyleUtils from '@hooks/useStyleUtils';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import CONST from '@src/CONST';
 import Button from './Button';
 import Lottie from './Lottie';
@@ -48,8 +49,9 @@ function RequireTwoFactorAuthenticationModal({onCancel = () => {}, description, 
                     innerContainerStyle={{...styles.pb5, ...styles.pt3, ...styles.boxShadowNone}}
                     shouldEnableNewFocusManagement={shouldEnableNewFocusManagement}
                 >
-                    <View style={safeAreaPaddingBottomStyle}>
+                    <View fsClass={UNMASK} style={safeAreaPaddingBottomStyle}>
                         <View
+                        fsClass={UNMASK}
                             style={[
                                 styles.mh3,
                                 styles.br3,
@@ -66,8 +68,8 @@ function RequireTwoFactorAuthenticationModal({onCancel = () => {}, description, 
                                 loop
                             />
                         </View>
-                        <View style={[styles.mt5, styles.mh5]}>
-                            <View style={[styles.gap2, styles.mb10]}>
+                        <View fsClass={UNMASK} style={[styles.mt5, styles.mh5]}>
+                            <View fsClass={UNMASK} style={[styles.gap2, styles.mb10]}>
                                 <Text style={[styles.textHeadlineH1]}>{translate('twoFactorAuth.pleaseEnableTwoFactorAuth')}</Text>
                                 <Text style={styles.textSupporting}>{description}</Text>
                             </View>

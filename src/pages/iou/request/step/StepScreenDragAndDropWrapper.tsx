@@ -6,6 +6,7 @@ import HeaderWithBackButton from '@components/HeaderWithBackButton';
 import ScreenWrapper from '@components/ScreenWrapper';
 import useThemeStyles from '@hooks/useThemeStyles';
 import * as DeviceCapabilities from '@libs/DeviceCapabilities';
+import {UNMASK} from '@libs/Fullstory';
 import callOrReturn from '@src/types/utils/callOrReturn';
 
 type StepScreenDragAndDropWrapperProps = {
@@ -48,7 +49,10 @@ function StepScreenDragAndDropWrapper({testID, headerTitle, onBackButtonPress, o
         >
             {({safeAreaPaddingBottomStyle}) => (
                 <DragAndDropProvider setIsDraggingOver={setIsDraggingOver}>
-                    <View style={[styles.flex1, safeAreaPaddingBottomStyle]}>
+                    <View
+                        fsClass={UNMASK}
+                        style={[styles.flex1, safeAreaPaddingBottomStyle]}
+                    >
                         <HeaderWithBackButton
                             title={headerTitle}
                             onBackButtonPress={onBackButtonPress}

@@ -7,6 +7,7 @@ import type {ScreenWrapperChildrenProps} from '@components/ScreenWrapper';
 import ScreenWrapper from '@components/ScreenWrapper';
 import useThemeStyles from '@hooks/useThemeStyles';
 import * as DeviceCapabilities from '@libs/DeviceCapabilities';
+import {UNMASK} from '@libs/Fullstory';
 import callOrReturn from '@src/types/utils/callOrReturn';
 
 type StepScreenWrapperProps = {
@@ -60,7 +61,10 @@ function StepScreenWrapper({
         >
             {({insets, safeAreaPaddingBottomStyle, didScreenTransitionEnd}) => (
                 <FullPageNotFoundView shouldShow={shouldShowNotFoundPage}>
-                    <View style={[styles.flex1]}>
+                    <View
+                        fsClass={UNMASK}
+                        style={[styles.flex1]}
+                    >
                         <HeaderWithBackButton
                             title={headerTitle}
                             onBackButtonPress={onBackButtonPress}

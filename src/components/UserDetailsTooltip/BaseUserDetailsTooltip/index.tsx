@@ -9,6 +9,7 @@ import Tooltip from '@components/Tooltip';
 import type UserDetailsTooltipProps from '@components/UserDetailsTooltip/types';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import {isAnonymousUser} from '@libs/actions/Session';
 import * as LocalePhoneNumber from '@libs/LocalePhoneNumber';
 import * as ReportUtils from '@libs/ReportUtils';
@@ -55,8 +56,8 @@ function BaseUserDetailsTooltip({accountID, fallbackUserDetails, icon, delegateA
     }
     const renderTooltipContent = useCallback(
         () => (
-            <View style={[styles.alignItemsCenter, styles.ph2, styles.pv2]}>
-                <View style={styles.emptyAvatar}>
+            <View fsClass={UNMASK} style={[styles.alignItemsCenter, styles.ph2, styles.pv2]}>
+                <View fsClass={UNMASK} style={styles.emptyAvatar}>
                     <Avatar
                         containerStyles={[styles.actionAvatar]}
                         source={icon?.source ?? userAvatar}

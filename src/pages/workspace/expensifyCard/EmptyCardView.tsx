@@ -9,6 +9,7 @@ import useEmptyViewHeaderHeight from '@hooks/useEmptyViewHeaderHeight';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
 import useWindowDimensions from '@hooks/useWindowDimensions';
+import {UNMASK} from '@libs/Fullstory';
 import colors from '@styles/theme/colors';
 import CONST from '@src/CONST';
 
@@ -21,7 +22,7 @@ function EmptyCardView() {
 
     return (
         <ScrollView>
-            <View style={[{height: windowHeight - headerHeight}, styles.pt5]}>
+            <View fsClass={UNMASK} style={[{height: windowHeight - headerHeight}, styles.pt5]}>
                 <EmptyStateComponent
                     SkeletonComponent={CardRowSkeleton}
                     headerMediaType={CONST.EMPTY_STATE_MEDIA.ILLUSTRATION}

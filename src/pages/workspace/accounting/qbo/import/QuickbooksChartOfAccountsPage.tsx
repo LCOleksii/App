@@ -8,6 +8,7 @@ import Text from '@components/Text';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
 import * as Connections from '@libs/actions/connections';
+import {UNMASK} from '@libs/Fullstory';
 import type {WithPolicyProps} from '@pages/workspace/withPolicy';
 import withPolicyConnections from '@pages/workspace/withPolicyConnections';
 import variables from '@styles/variables';
@@ -30,11 +31,20 @@ function QuickbooksChartOfAccountsPage({policy}: WithPolicyProps) {
             contentContainerStyle={[styles.pb2, styles.ph5]}
             connectionName={CONST.POLICY.CONNECTIONS.NAME.QBO}
         >
-            <View style={[styles.flexRow, styles.mb4, styles.alignItemsCenter, styles.justifyContentBetween]}>
-                <View style={styles.flex1}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.flexRow, styles.mb4, styles.alignItemsCenter, styles.justifyContentBetween]}
+            >
+                <View
+                    fsClass={UNMASK}
+                    style={styles.flex1}
+                >
                     <Text fontSize={variables.fontSizeNormal}>{translate('workspace.accounting.import')}</Text>
                 </View>
-                <View style={[styles.flex1, styles.alignItemsEnd, styles.pl3]}>
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.flex1, styles.alignItemsEnd, styles.pl3]}
+                >
                     <Switch
                         accessibilityLabel={translate('workspace.accounting.accounts')}
                         isOn
@@ -50,12 +60,18 @@ function QuickbooksChartOfAccountsPage({policy}: WithPolicyProps) {
                 wrapperStyle={styles.sectionMenuItemTopDescription}
             />
             <Text style={styles.pv5}>{translate('workspace.qbo.accountsSwitchTitle')}</Text>
-            <View style={[styles.flexRow, styles.mb2, styles.alignItemsCenter, styles.justifyContentBetween]}>
-                <View style={styles.flex1}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.flexRow, styles.mb2, styles.alignItemsCenter, styles.justifyContentBetween]}
+            >
+                <View
+                    fsClass={UNMASK}
+                    style={styles.flex1}
+                >
                     <Text fontSize={variables.fontSizeNormal}>{translate('workspace.common.enabled')}</Text>
                 </View>
                 <OfflineWithFeedback pendingAction={pendingFields?.enableNewCategories}>
-                    <View style={[styles.flex1, styles.alignItemsEnd, styles.pl3]}>
+                    <View fsClass={UNMASK} style={[styles.flex1, styles.alignItemsEnd, styles.pl3]}>
                         <Switch
                             accessibilityLabel={translate('workspace.accounting.accounts')}
                             isOn={!!enableNewCategories}
@@ -66,7 +82,10 @@ function QuickbooksChartOfAccountsPage({policy}: WithPolicyProps) {
                     </View>
                 </OfflineWithFeedback>
             </View>
-            <View style={styles.flex1}>
+            <View
+                fsClass={UNMASK}
+                style={styles.flex1}
+            >
                 <Text style={styles.mutedTextLabel}>{translate('workspace.qbo.accountsSwitchDescription')}</Text>
             </View>
         </ConnectionLayout>

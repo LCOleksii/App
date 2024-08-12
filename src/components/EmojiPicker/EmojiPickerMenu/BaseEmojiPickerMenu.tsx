@@ -13,6 +13,7 @@ import useResponsiveLayout from '@hooks/useResponsiveLayout';
 import useThemeStyles from '@hooks/useThemeStyles';
 import useWindowDimensions from '@hooks/useWindowDimensions';
 import type {EmojiPickerList, EmojiPickerListItem, HeaderIndice} from '@libs/EmojiUtils';
+import {UNMASK} from '@libs/Fullstory';
 import CONST from '@src/CONST';
 
 type BaseEmojiPickerMenuProps = {
@@ -101,7 +102,10 @@ function BaseEmojiPickerMenu(
                     onPress={scrollToHeader}
                 />
             )}
-            <View style={listWrapperStyle}>
+            <View
+                fsClass={UNMASK}
+                style={listWrapperStyle}
+            >
                 <FlashList
                     ref={ref}
                     keyboardShouldPersistTaps="handled"

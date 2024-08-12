@@ -11,6 +11,7 @@ import Text from '@components/Text';
 import TextLink from '@components/TextLink';
 import useLocalize from '@hooks/useLocalize';
 import useNetwork from '@hooks/useNetwork';
+import {UNMASK} from '@libs/Fullstory';
 import type {SubStepProps} from '@hooks/useSubStep/types';
 import useThemeStyles from '@hooks/useThemeStyles';
 import * as ErrorUtils from '@libs/ErrorUtils';
@@ -103,7 +104,7 @@ function ConfirmationUBO({reimbursementAccount, reimbursementAccountDraft, onNex
                             {translate('common.termsOfService')}
                         </TextLink>
                     </Text>
-                    <View style={[styles.ph5, styles.mtAuto]}>
+                    <View fsClass={UNMASK} style={[styles.ph5, styles.mtAuto]}>
                         {error && error.length > 0 && (
                             <DotIndicatorMessage
                                 textStyles={[styles.formError]}

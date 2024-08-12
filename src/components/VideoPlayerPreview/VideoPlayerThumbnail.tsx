@@ -7,6 +7,7 @@ import Image from '@components/Image';
 import PressableWithoutFeedback from '@components/Pressable/PressableWithoutFeedback';
 import {ShowContextMenuContext, showContextMenuForReport} from '@components/ShowContextMenuContext';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {EXCLUDE} from '@libs/Fullstory';
 import ControlSelection from '@libs/ControlSelection';
 import * as DeviceCapabilities from '@libs/DeviceCapabilities';
 import * as ReportUtils from '@libs/ReportUtils';
@@ -28,9 +29,9 @@ function VideoPlayerThumbnail({thumbnailUrl, onPress, accessibilityLabel}: Video
     const styles = useThemeStyles();
 
     return (
-        <View style={styles.flex1}>
+        <View fsClass={EXCLUDE} style={styles.flex1}>
             {thumbnailUrl && (
-                <View style={[styles.flex1, {borderRadius: variables.componentBorderRadiusNormal}, styles.overflowHidden]}>
+                <View fsClass={EXCLUDE} style={[styles.flex1, {borderRadius: variables.componentBorderRadiusNormal}, styles.overflowHidden]}>
                     <Image
                         source={{uri: thumbnailUrl}}
                         style={styles.flex1}

@@ -10,6 +10,7 @@ import useStyleUtils from '@hooks/useStyleUtils';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
 import useWindowDimensions from '@hooks/useWindowDimensions';
+import {UNMASK} from '@libs/Fullstory';
 import mergeRefs from '@libs/mergeRefs';
 import * as Modal from '@userActions/Modal';
 import CONST from '@src/CONST';
@@ -88,9 +89,9 @@ function ButtonWithDropdownMenu<IValueType>({
     );
 
     return (
-        <View style={wrapperStyle}>
+        <View fsClass={UNMASK} style={wrapperStyle}>
             {shouldAlwaysShowDropdownMenu || options.length > 1 ? (
-                <View style={[styles.flexRow, styles.justifyContentBetween, styles.alignItemsCenter, style]}>
+                <View fsClass={UNMASK} style={[styles.flexRow, styles.justifyContentBetween, styles.alignItemsCenter, style]}>
                     <Button
                         success={success}
                         pressOnEnter={pressOnEnter}
@@ -123,9 +124,9 @@ function ButtonWithDropdownMenu<IValueType>({
                             innerStyles={[styles.dropDownButtonCartIconContainerPadding, innerStyleDropButton]}
                             enterKeyEventListenerPriority={enterKeyEventListenerPriority}
                         >
-                            <View style={[styles.dropDownButtonCartIconView, innerStyleDropButton]}>
-                                <View style={[success ? styles.buttonSuccessDivider : styles.buttonDivider]} />
-                                <View style={[isButtonSizeLarge ? styles.dropDownLargeButtonArrowContain : styles.dropDownMediumButtonArrowContain]}>
+                            <View fsClass={UNMASK} style={[styles.dropDownButtonCartIconView, innerStyleDropButton]}>
+                                <View fsClass={UNMASK} style={[success ? styles.buttonSuccessDivider : styles.buttonDivider]} />
+                                <View fsClass={UNMASK} style={[isButtonSizeLarge ? styles.dropDownLargeButtonArrowContain : styles.dropDownMediumButtonArrowContain]}>
                                     <Icon
                                         medium={isButtonSizeLarge}
                                         small={!isButtonSizeLarge}

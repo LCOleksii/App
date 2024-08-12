@@ -7,6 +7,7 @@ import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
 import {updateLastAccessedWorkspace} from '@libs/actions/Policy/Policy';
 import * as Browser from '@libs/Browser';
+import {UNMASK} from '@libs/Fullstory';
 import TopBar from '@libs/Navigation/AppNavigator/createCustomBottomTabNavigator/TopBar';
 import Navigation from '@libs/Navigation/Navigation';
 import Performance from '@libs/Performance';
@@ -57,7 +58,10 @@ function BaseSidebarScreen() {
                         breadcrumbLabel={translate('common.inbox')}
                         activeWorkspaceID={activeWorkspaceID}
                     />
-                    <View style={[styles.flex1]}>
+                    <View
+                        fsClass={UNMASK}
+                        style={[styles.flex1]}
+                    >
                         <SidebarLinksData
                             onLinkClick={startTimer}
                             insets={insets}

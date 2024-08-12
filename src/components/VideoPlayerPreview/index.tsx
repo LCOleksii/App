@@ -10,6 +10,7 @@ import useLocalize from '@hooks/useLocalize';
 import useResponsiveLayout from '@hooks/useResponsiveLayout';
 import useThemeStyles from '@hooks/useThemeStyles';
 import useThumbnailDimensions from '@hooks/useThumbnailDimensions';
+import {EXCLUDE} from '@libs/Fullstory';
 import VideoPlayerThumbnail from './VideoPlayerThumbnail';
 
 type VideoDimensions = {
@@ -70,7 +71,7 @@ function VideoPlayerPreview({videoUrl, thumbnailUrl, reportID, fileName, videoDi
     }, [currentlyPlayingURL, currentlyPlayingURLReportID, updateCurrentlyPlayingURL, videoUrl, reportID]);
 
     return (
-        <View style={[styles.webViewStyles.tagStyles.video, thumbnailDimensionsStyles]}>
+        <View fsClass={EXCLUDE} style={[styles.webViewStyles.tagStyles.video, thumbnailDimensionsStyles]}>
             {shouldUseNarrowLayout || isThumbnail ? (
                 <VideoPlayerThumbnail
                     thumbnailUrl={thumbnailUrl}
@@ -78,7 +79,7 @@ function VideoPlayerPreview({videoUrl, thumbnailUrl, reportID, fileName, videoDi
                     accessibilityLabel={fileName}
                 />
             ) : (
-                <View style={styles.flex1}>
+                <View fsClass={EXCLUDE} style={styles.flex1}>
                     <VideoPlayer
                         url={videoUrl}
                         onVideoLoaded={onVideoLoaded as (event: VideoReadyForDisplayEvent) => void}
@@ -88,7 +89,7 @@ function VideoPlayerPreview({videoUrl, thumbnailUrl, reportID, fileName, videoDi
                         isPreview
                         videoPlayerStyle={styles.videoPlayerPreview}
                     />
-                    <View style={[styles.pAbsolute, styles.w100]}>
+                    <View fsClass={EXCLUDE} style={[styles.pAbsolute, styles.w100]}>
                         <IconButton
                             src={Expensicons.Expand}
                             style={[styles.videoExpandButton]}

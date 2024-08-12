@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {View} from 'react-native';
 import {useOnyx} from 'react-native-onyx';
+import {UNMASK} from '@libs/Fullstory';
 import FullScreenLoadingIndicator from '@components/FullscreenLoadingIndicator';
 import HeaderWithBackButton from '@components/HeaderWithBackButton';
 import Modal from '@components/Modal';
@@ -74,7 +75,7 @@ function CardAuthenticationModal({headerTitle}: CardAuthenticationModalProps) {
                     shouldShowBackButton={false}
                 />
                 {isLoading && <FullScreenLoadingIndicator />}
-                <View style={[styles.flex1]}>
+                <View fsClass={UNMASK} style={[styles.flex1]}>
                     <iframe
                         src={authenticationLink}
                         title="Statements"

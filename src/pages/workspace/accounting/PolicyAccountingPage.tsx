@@ -31,6 +31,7 @@ import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
 import useWindowDimensions from '@hooks/useWindowDimensions';
 import {hasSynchronizationError, isConnectionUnverified, removePolicyConnection, syncConnection} from '@libs/actions/connections';
+import {UNMASK} from '@libs/Fullstory';
 import {
     areSettingsInErrorFields,
     findCurrentXeroOrganization,
@@ -418,7 +419,10 @@ function PolicyAccountingPage({policy}: PolicyAccountingPageProps) {
                         color={theme.spinner}
                     />
                 ) : (
-                    <View ref={threeDotsMenuContainerRef}>
+                    <View
+                        fsClass={UNMASK}
+                        ref={threeDotsMenuContainerRef}
+                    >
                         <ThreeDotsMenu
                             onIconPress={() => {
                                 threeDotsMenuContainerRef.current?.measureInWindow((x, y, width, height) => {
@@ -506,7 +510,10 @@ function PolicyAccountingPage({policy}: PolicyAccountingPageProps) {
                     threeDotsAnchorPosition={styles.threeDotsPopoverOffsetNoCloseButton(windowWidth)}
                 />
                 <ScrollView contentContainerStyle={styles.pt3}>
-                    <View style={[styles.flex1, shouldUseNarrowLayout ? styles.workspaceSectionMobile : styles.workspaceSection]}>
+                    <View
+                        fsClass={UNMASK}
+                        style={[styles.flex1, shouldUseNarrowLayout ? styles.workspaceSectionMobile : styles.workspaceSection]}
+                    >
                         <Section
                             title={translate('workspace.accounting.title')}
                             subtitle={translate('workspace.accounting.subtitle')}

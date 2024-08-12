@@ -10,6 +10,7 @@ import Text from '@components/Text';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
 import * as Connections from '@libs/actions/connections';
+import {UNMASK} from '@libs/Fullstory';
 import AccessOrNotFoundWrapper from '@pages/workspace/AccessOrNotFoundWrapper';
 import type {WithPolicyProps} from '@pages/workspace/withPolicy';
 import withPolicyConnections from '@pages/workspace/withPolicyConnections';
@@ -38,12 +39,21 @@ function QuickbooksClassesPage({policy}: WithPolicyProps) {
                 <HeaderWithBackButton title={translate('workspace.qbo.classes')} />
                 <ScrollView contentContainerStyle={[styles.pb2, styles.ph5]}>
                     <Text style={styles.pb5}>{translate('workspace.qbo.classesDescription')}</Text>
-                    <View style={[styles.flexRow, styles.mb4, styles.alignItemsCenter, styles.justifyContentBetween]}>
-                        <View style={styles.flex1}>
+                    <View
+                        fsClass={UNMASK}
+                        style={[styles.flexRow, styles.mb4, styles.alignItemsCenter, styles.justifyContentBetween]}
+                    >
+                        <View
+                            fsClass={UNMASK}
+                            style={styles.flex1}
+                        >
                             <Text fontSize={variables.fontSizeNormal}>{translate('workspace.accounting.import')}</Text>
                         </View>
                         <OfflineWithFeedback pendingAction={pendingFields?.syncClasses}>
-                            <View style={[styles.flex1, styles.alignItemsEnd, styles.pl3]}>
+                            <View
+                                fsClass={UNMASK}
+                                style={[styles.flex1, styles.alignItemsEnd, styles.pl3]}
+                            >
                                 <Switch
                                     accessibilityLabel={translate('workspace.qbo.classes')}
                                     isOn={isSwitchOn}

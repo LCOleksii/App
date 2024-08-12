@@ -9,6 +9,7 @@ import SelectionList from '@components/SelectionList';
 import RadioListItem from '@components/SelectionList/RadioListItem';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@navigation/Navigation';
 import * as SearchActions from '@userActions/Search';
 import CONST from '@src/CONST';
@@ -71,7 +72,7 @@ function SearchFiltersStatusPage() {
                         Navigation.goBack(ROUTES.SEARCH_ADVANCED_FILTERS);
                     }}
                 />
-                <View style={[styles.flex1]}>
+                <View fsClass={UNMASK} style={[styles.flex1]}>
                     <SelectionList
                         sections={[{data: filterStatusItems}]}
                         onSelectRow={(item) => {

@@ -2,6 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import useThemeStyles from '@hooks/useThemeStyles';
 import type {HeaderIndice} from '@libs/EmojiUtils';
+import {UNMASK} from '@libs/Fullstory';
 import CategoryShortcutButton from './CategoryShortcutButton';
 
 type CategoryShortcutBarProps = {
@@ -15,7 +16,10 @@ type CategoryShortcutBarProps = {
 function CategoryShortcutBar({onPress, headerEmojis}: CategoryShortcutBarProps) {
     const styles = useThemeStyles();
     return (
-        <View style={[styles.ph4, styles.flexRow]}>
+        <View
+            fsClass={UNMASK}
+            style={[styles.ph4, styles.flexRow]}
+        >
             {headerEmojis.map((headerEmoji) => (
                 <CategoryShortcutButton
                     icon={headerEmoji.icon}

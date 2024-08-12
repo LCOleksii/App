@@ -24,6 +24,7 @@ import useResponsiveLayout from '@hooks/useResponsiveLayout';
 import useTabNavigatorFocus from '@hooks/useTabNavigatorFocus';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import * as Browser from '@libs/Browser';
 import * as FileUtils from '@libs/fileDownload/FileUtils';
 import getCurrentPosition from '@libs/getCurrentPosition';
@@ -541,7 +542,10 @@ function IOURequestStepScan({
 
     const mobileCameraView = () => (
         <>
-            <View style={[styles.cameraView]}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.cameraView]}
+            >
                 {PDFThumbnailView}
                 {((cameraPermissionState === 'prompt' && !isQueriedPermissionState) || (cameraPermissionState === 'granted' && isEmptyObject(videoConstraints))) && (
                     <ActivityIndicator
@@ -551,7 +555,10 @@ function IOURequestStepScan({
                     />
                 )}
                 {cameraPermissionState !== 'granted' && isQueriedPermissionState && (
-                    <View style={[styles.flex1, styles.permissionView, styles.userSelectNone]}>
+                    <View
+                        fsClass={UNMASK}
+                        style={[styles.flex1, styles.permissionView, styles.userSelectNone]}
+                    >
                         <Icon
                             src={Hand}
                             width={CONST.RECEIPT.HAND_ICON_WIDTH}
@@ -589,7 +596,10 @@ function IOURequestStepScan({
                 )}
             </View>
 
-            <View style={[styles.flexRow, styles.justifyContentAround, styles.alignItemsCenter, styles.pv3]}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.flexRow, styles.justifyContentAround, styles.alignItemsCenter, styles.pv3]}
+            >
                 <AttachmentPicker>
                     {({openPicker}) => (
                         <PressableWithFeedback
@@ -642,7 +652,10 @@ function IOURequestStepScan({
     const desktopUploadView = () => (
         <>
             {PDFThumbnailView}
-            <View onLayout={({nativeEvent}) => setReceiptImageTopPosition(PixelRatio.roundToNearestPixel((nativeEvent.layout as DOMRect).top))}>
+            <View
+                fsClass={UNMASK}
+                onLayout={({nativeEvent}) => setReceiptImageTopPosition(PixelRatio.roundToNearestPixel((nativeEvent.layout as DOMRect).top))}
+            >
                 <ReceiptUpload
                     width={CONST.RECEIPT.ICON_SIZE}
                     height={CONST.RECEIPT.ICON_SIZE}
@@ -650,6 +663,7 @@ function IOURequestStepScan({
             </View>
 
             <View
+                fsClass={UNMASK}
                 style={[styles.receiptViewTextContainer, styles.userSelectNone]}
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...panResponder.panHandlers}
@@ -692,7 +706,10 @@ function IOURequestStepScan({
             testID={IOURequestStepScan.displayName}
         >
             {(isDraggingOverWrapper) => (
-                <View style={[styles.flex1, !Browser.isMobile() && styles.uploadReceiptView(isSmallScreenWidth)]}>
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.flex1, !Browser.isMobile() && styles.uploadReceiptView(isSmallScreenWidth)]}
+                >
                     {!(isDraggingOver ?? isDraggingOverWrapper) && (Browser.isMobile() ? mobileCameraView() : desktopUploadView())}
                     <ReceiptDropUI
                         onDrop={(e) => {

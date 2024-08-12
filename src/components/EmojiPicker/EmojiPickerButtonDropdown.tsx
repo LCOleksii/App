@@ -11,6 +11,7 @@ import Tooltip from '@components/Tooltip/PopoverAnchorTooltip';
 import useLocalize from '@hooks/useLocalize';
 import useStyleUtils from '@hooks/useStyleUtils';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import getButtonState from '@libs/getButtonState';
 import * as EmojiPickerAction from '@userActions/EmojiPickerAction';
 import CONST from '@src/CONST';
@@ -72,7 +73,7 @@ function EmojiPickerButtonDropdown(
                 role={CONST.ROLE.BUTTON}
             >
                 {({hovered, pressed}) => (
-                    <View style={styles.emojiPickerButtonDropdownContainer}>
+                    <View fsClass={UNMASK} style={styles.emojiPickerButtonDropdownContainer}>
                         <Text
                             style={styles.emojiPickerButtonDropdownIcon}
                             numberOfLines={1}
@@ -87,7 +88,7 @@ function EmojiPickerButtonDropdown(
                                 )
                             }
                         </Text>
-                        <View style={[styles.popoverMenuIcon, styles.pointerEventsAuto, disabled && styles.cursorDisabled, styles.rotate90]}>
+                        <View fsClass={UNMASK} style={[styles.popoverMenuIcon, styles.pointerEventsAuto, disabled && styles.cursorDisabled, styles.rotate90]}>
                             <Icon
                                 src={Expensicons.ArrowRight}
                                 fill={StyleUtils.getIconFillColor(getButtonState(hovered, pressed))}

@@ -25,6 +25,7 @@ import useLocalize from '@hooks/useLocalize';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
 import * as FileUtils from '@libs/fileDownload/FileUtils';
+import {UNMASK} from '@libs/Fullstory';
 import getCurrentPosition from '@libs/getCurrentPosition';
 import Log from '@libs/Log';
 import Navigation from '@libs/Navigation/Navigation';
@@ -491,7 +492,10 @@ function IOURequestStepScan({
                 />
             )}
             {cameraPermissionStatus !== RESULTS.GRANTED && (
-                <View style={[styles.cameraView, styles.permissionView, styles.userSelectNone]}>
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.cameraView, styles.permissionView, styles.userSelectNone]}
+                >
                     <ImageSVG
                         contentFit="contain"
                         src={Hand}
@@ -513,7 +517,10 @@ function IOURequestStepScan({
                 </View>
             )}
             {cameraPermissionStatus === RESULTS.GRANTED && device == null && (
-                <View style={[styles.cameraView]}>
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.cameraView]}
+                >
                     <ActivityIndicator
                         size={CONST.ACTIVITY_INDICATOR_SIZE.LARGE}
                         style={[styles.flex1]}
@@ -522,9 +529,12 @@ function IOURequestStepScan({
                 </View>
             )}
             {cameraPermissionStatus === RESULTS.GRANTED && device != null && (
-                <View style={[styles.cameraView]}>
+                <View fsClass={UNMASK} style={[styles.cameraView]}>
                     <GestureDetector gesture={tapGesture}>
-                        <View style={styles.flex1}>
+                        <View
+                            fsClass={UNMASK}
+                            style={styles.flex1}
+                        >
                             <NavigationAwareCamera
                                 ref={camera}
                                 device={device}
@@ -539,7 +549,10 @@ function IOURequestStepScan({
                     </GestureDetector>
                 </View>
             )}
-            <View style={[styles.flexRow, styles.justifyContentAround, styles.alignItemsCenter, styles.pv3]}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.flexRow, styles.justifyContentAround, styles.alignItemsCenter, styles.pv3]}
+            >
                 <AttachmentPicker>
                     {({openPicker}) => (
                         <PressableWithFeedback

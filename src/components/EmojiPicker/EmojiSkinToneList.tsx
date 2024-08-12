@@ -6,6 +6,7 @@ import Text from '@components/Text';
 import useLocalize from '@hooks/useLocalize';
 import usePreferredEmojiSkinTone from '@hooks/usePreferredEmojiSkinTone';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import CONST from '@src/CONST';
 import EmojiPickerMenuItem from './EmojiPickerMenuItem';
 import getSkinToneEmojiFromIndex from './getSkinToneEmojiFromIndex';
@@ -43,7 +44,7 @@ function EmojiSkinToneList() {
 
     const currentSkinTone = getSkinToneEmojiFromIndex(preferredSkinTone);
     return (
-        <View style={[styles.flexRow, styles.p3, styles.ph4, styles.emojiPickerContainer]}>
+        <View fsClass={UNMASK} style={[styles.flexRow, styles.p3, styles.ph4, styles.emojiPickerContainer]}>
             {!isSkinToneListVisible && (
                 <PressableWithoutFeedback
                     onPress={toggleIsSkinToneListVisible}
@@ -51,14 +52,14 @@ function EmojiSkinToneList() {
                     accessibilityLabel={translate('emojiPicker.skinTonePickerLabel')}
                     role={CONST.ROLE.BUTTON}
                 >
-                    <View style={[styles.emojiItem, styles.wAuto, styles.justifyContentCenter]}>
+                    <View fsClass={UNMASK} style={[styles.emojiItem, styles.wAuto, styles.justifyContentCenter]}>
                         <Text style={[styles.emojiText, styles.ph2, styles.textNoWrap]}>{currentSkinTone.code}</Text>
                     </View>
                     <Text style={[styles.emojiSkinToneTitle]}>{translate('emojiPicker.skinTonePickerLabel')}</Text>
                 </PressableWithoutFeedback>
             )}
             {isSkinToneListVisible && (
-                <View style={[styles.flexRow, styles.flex1]}>
+                <View fsClass={UNMASK} style={[styles.flexRow, styles.flex1]}>
                     {Emojis.skinTones.map((skinToneEmoji) => (
                         <EmojiPickerMenuItem
                             onPress={() => updateSelectedSkinTone(skinToneEmoji)}

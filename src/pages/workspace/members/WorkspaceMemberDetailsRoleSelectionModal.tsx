@@ -7,6 +7,7 @@ import SelectionList from '@components/SelectionList';
 import RadioListItem from '@components/SelectionList/RadioListItem';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import CONST from '@src/CONST';
 
 type ListItemType = {
@@ -51,7 +52,10 @@ function WorkspaceMemberDetailsRoleSelectionModal({isVisible, items, onRoleChang
                     title={translate('common.role')}
                     onBackButtonPress={onClose}
                 />
-                <View style={[styles.containerWithSpaceBetween, styles.pointerEventsBoxNone]}>
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.containerWithSpaceBetween, styles.pointerEventsBoxNone]}
+                >
                     <SelectionList
                         sections={[{data: items}]}
                         ListItem={RadioListItem}

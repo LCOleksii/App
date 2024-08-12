@@ -11,6 +11,7 @@ import SelectionList from '@components/SelectionList';
 import CardListItem from '@components/SelectionList/CardListItem';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import type {CategorySection} from '@libs/OptionsListUtils';
 import type {OptionData} from '@libs/ReportUtils';
 import Navigation from '@navigation/Navigation';
@@ -97,7 +98,7 @@ function SearchFiltersCardPage() {
                         Navigation.goBack(ROUTES.SEARCH_ADVANCED_FILTERS);
                     }}
                 />
-                <View style={[styles.flex1]}>
+                <View fsClass={UNMASK} style={[styles.flex1]}>
                     <SelectionList
                         sections={sections}
                         onSelectRow={updateNewCards}

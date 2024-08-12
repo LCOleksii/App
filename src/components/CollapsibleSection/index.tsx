@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
+import {UNMASK} from '@libs/Fullstory';
 import {View} from 'react-native';
 import Icon from '@components/Icon';
 import * as Expensicons from '@components/Icon/Expensicons';
@@ -43,7 +44,7 @@ function CollapsibleSection({title, children, titleStyle, textStyle, wrapperStyl
     const src = isExpanded ? Expensicons.UpArrow : Expensicons.DownArrow;
 
     return (
-        <View style={[styles.mt4, wrapperStyle]}>
+        <View fsClass={UNMASK} style={[styles.mt4, wrapperStyle]}>
             <PressableWithFeedback
                 onPress={toggleSection}
                 style={[styles.pb4, styles.flexRow]}
@@ -63,9 +64,9 @@ function CollapsibleSection({title, children, titleStyle, textStyle, wrapperStyl
                     src={src}
                 />
             </PressableWithFeedback>
-            {shouldShowSectionBorder && <View style={styles.collapsibleSectionBorder} />}
+            {shouldShowSectionBorder && <View fsClass={UNMASK} style={styles.collapsibleSectionBorder} />}
             <Collapsible isOpened={isExpanded}>
-                <View>{children}</View>
+                <View fsClass={UNMASK}>{children}</View>
             </Collapsible>
         </View>
     );

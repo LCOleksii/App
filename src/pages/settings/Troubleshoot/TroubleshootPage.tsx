@@ -25,6 +25,7 @@ import useThemeStyles from '@hooks/useThemeStyles';
 import useWaitForNavigation from '@hooks/useWaitForNavigation';
 import {setShouldMaskOnyxState} from '@libs/actions/MaskOnyx';
 import ExportOnyxState from '@libs/ExportOnyxState';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@libs/Navigation/Navigation';
 import * as App from '@userActions/App';
 import * as Report from '@userActions/Report';
@@ -114,7 +115,10 @@ function TroubleshootPage({shouldStoreLogs, shouldMaskOnyxState}: TroubleshootPa
                 icon={Illustrations.Lightbulb}
             />
             <ScrollView contentContainerStyle={styles.pt3}>
-                <View style={[styles.flex1, shouldUseNarrowLayout ? styles.workspaceSectionMobile : styles.workspaceSection]}>
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.flex1, shouldUseNarrowLayout ? styles.workspaceSectionMobile : styles.workspaceSection]}
+                >
                     <Section
                         title={translate('initialSettingsPage.aboutPage.troubleshoot')}
                         subtitle={translate('initialSettingsPage.troubleshoot.description')}
@@ -136,8 +140,11 @@ function TroubleshootPage({shouldStoreLogs, shouldMaskOnyxState}: TroubleshootPa
                             </Text>
                         )}
                     >
-                        <View style={[styles.flex1, styles.mt5]}>
-                            <View>
+                        <View
+                            fsClass={UNMASK}
+                            style={[styles.flex1, styles.mt5]}
+                        >
+                            <View fsClass={UNMASK}>
                                 <ClientSideLoggingToolMenu />
                                 <TestToolRow title={translate('initialSettingsPage.troubleshoot.maskExportOnyxStateData')}>
                                     <Switch
@@ -152,7 +159,10 @@ function TroubleshootPage({shouldStoreLogs, shouldMaskOnyxState}: TroubleshootPa
                                 shouldUseSingleExecution
                             />
                             {!isProduction && (
-                                <View style={[styles.mt6]}>
+                                <View
+                                    fsClass={UNMASK}
+                                    style={[styles.mt6]}
+                                >
                                     <TestToolMenu />
                                 </View>
                             )}

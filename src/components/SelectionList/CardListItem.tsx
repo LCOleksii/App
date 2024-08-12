@@ -6,6 +6,7 @@ import PressableWithFeedback from '@components/Pressable/PressableWithFeedback';
 import SelectCircle from '@components/SelectCircle';
 import TextWithTooltip from '@components/TextWithTooltip';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import CONST from '@src/CONST';
 import type {BankIcon} from '@src/types/onyx/Bank';
 import BaseListItem from './BaseListItem';
@@ -55,7 +56,7 @@ function CardListItem<TItem extends ListItem>({
         >
             <>
                 {item.bankIcon && (
-                    <View style={[styles.mr3]}>
+                    <View fsClass={UNMASK} style={[styles.mr3]}>
                         <Icon
                             src={item.bankIcon.icon}
                             width={item.bankIcon.iconWidth}
@@ -64,8 +65,8 @@ function CardListItem<TItem extends ListItem>({
                         />
                     </View>
                 )}
-                <View style={[styles.flex1, styles.flexColumn, styles.justifyContentCenter, styles.alignItemsStretch, styles.optionRow]}>
-                    <View style={[styles.flexRow, styles.alignItemsCenter]}>
+                <View fsClass={UNMASK} style={[styles.flex1, styles.flexColumn, styles.justifyContentCenter, styles.alignItemsStretch, styles.optionRow]}>
+                    <View fsClass={UNMASK} style={[styles.flexRow, styles.alignItemsCenter]}>
                         <TextWithTooltip
                             shouldShowTooltip={showTooltip}
                             text={Str.removeSMSDomain(item.text ?? '')}

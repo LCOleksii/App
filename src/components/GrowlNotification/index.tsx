@@ -9,6 +9,7 @@ import * as Pressables from '@components/Pressable';
 import Text from '@components/Text';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import * as Growl from '@libs/Growl';
 import type {GrowlRef} from '@libs/Growl';
 import useNativeDriver from '@libs/useNativeDriver';
@@ -118,7 +119,7 @@ function GrowlNotification(_: unknown, ref: ForwardedRef<GrowlRef>) {
         });
 
     return (
-        <View style={[styles.growlNotificationWrapper]}>
+        <View fsClass={UNMASK} style={[styles.growlNotificationWrapper]}>
             <GrowlNotificationContainer translateY={translateY}>
                 <PressableWithoutFeedback
                     accessibilityLabel={bodyText}

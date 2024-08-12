@@ -19,6 +19,7 @@ import usePrevious from '@hooks/usePrevious';
 import useThemeStyles from '@hooks/useThemeStyles';
 import DistanceRequestUtils from '@libs/DistanceRequestUtils';
 import * as ErrorUtils from '@libs/ErrorUtils';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@libs/Navigation/Navigation';
 import * as OptionsListUtils from '@libs/OptionsListUtils';
 import * as ReportUtils from '@libs/ReportUtils';
@@ -476,7 +477,10 @@ function IOURequestStepDistance({
             shouldShowWrapper={!isCreatingNewRequest}
         >
             <>
-                <View style={styles.flex1}>
+                <View
+                    fsClass={UNMASK}
+                    style={styles.flex1}
+                >
                     <DraggableList
                         data={waypointsList}
                         keyExtractor={(item) => (waypoints[item]?.keyForList ?? waypoints[item]?.address ?? '') + item}
@@ -493,7 +497,10 @@ function IOURequestStepDistance({
                         }
                     />
                 </View>
-                <View style={[styles.w100, styles.pt2]}>
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.w100, styles.pt2]}
+                >
                     {/* Show error message if there is route error or there are less than 2 routes and user has tried submitting, */}
                     {((shouldShowAtLeastTwoDifferentWaypointsError && atLeastTwoDifferentWaypointsError) || duplicateWaypointsError || hasRouteError) && (
                         <DotIndicatorMessage

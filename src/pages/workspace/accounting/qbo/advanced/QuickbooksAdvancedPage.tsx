@@ -10,6 +10,7 @@ import useThemeStyles from '@hooks/useThemeStyles';
 import useWaitForNavigation from '@hooks/useWaitForNavigation';
 import * as Connections from '@libs/actions/connections';
 import * as ErrorUtils from '@libs/ErrorUtils';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@libs/Navigation/Navigation';
 import AccessOrNotFoundWrapper from '@pages/workspace/AccessOrNotFoundWrapper';
 import type {WithPolicyConnectionsProps} from '@pages/workspace/withPolicyConnections';
@@ -42,7 +43,10 @@ function QuickbooksAdvancedPage({policy}: WithPolicyConnectionsProps) {
     );
 
     const syncReimbursedSubMenuItems = () => (
-        <View style={[styles.mt3]}>
+        <View
+            fsClass={UNMASK}
+            style={[styles.mt3]}
+        >
             <OfflineWithFeedback pendingAction={pendingFields?.reimbursementAccountID}>
                 <MenuItemWithTopDescription
                     shouldShowRightIcon

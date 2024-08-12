@@ -16,6 +16,7 @@ import useLocalize from '@hooks/useLocalize';
 import useNetwork from '@hooks/useNetwork';
 import usePrevious from '@hooks/usePrevious';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import getPlaidOAuthReceivedRedirectURI from '@libs/getPlaidOAuthReceivedRedirectURI';
 import BankAccount from '@libs/models/BankAccount';
 import Navigation from '@libs/Navigation/Navigation';
@@ -429,7 +430,10 @@ function ReimbursementAccountPage({
                     subtitle={policyName}
                     onBackButtonPress={() => Navigation.goBack()}
                 />
-                <View style={[styles.m5, styles.mv3, styles.flex1]}>
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.m5, styles.mv3, styles.flex1]}
+                >
                     <Text>{errorText}</Text>
                 </View>
             </ScreenWrapper>

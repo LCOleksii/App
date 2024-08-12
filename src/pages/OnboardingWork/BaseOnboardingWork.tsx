@@ -15,6 +15,7 @@ import useOnboardingLayout from '@hooks/useOnboardingLayout';
 import useResponsiveLayout from '@hooks/useResponsiveLayout';
 import useThemeStyles from '@hooks/useThemeStyles';
 import * as ErrorUtils from '@libs/ErrorUtils';
+import {UNMASK} from '@libs/Fullstory';
 import Navigation from '@libs/Navigation/Navigation';
 import * as ValidationUtils from '@libs/ValidationUtils';
 import * as Policy from '@userActions/Policy/Policy';
@@ -77,7 +78,10 @@ function BaseOnboardingWork({shouldUseNativeStyles, onboardingPurposeSelected, o
             shouldEnableKeyboardAvoidingView
             testID="BaseOnboardingWork"
         >
-            <View style={[styles.h100, styles.defaultModalContainer, shouldUseNativeStyles && styles.pt8]}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.h100, styles.defaultModalContainer, shouldUseNativeStyles && styles.pt8]}
+            >
                 <HeaderWithBackButton
                     shouldShowBackButton
                     progressBarPercentage={OPEN_WORK_PAGE_PURPOSES.includes(onboardingPurposeSelected ?? '') ? 50 : 75}
@@ -96,10 +100,16 @@ function BaseOnboardingWork({shouldUseNativeStyles, onboardingPurposeSelected, o
                     shouldValidateOnChange
                     shouldTrimValues={false}
                 >
-                    <View style={[isMediumOrLargerScreenWidth ? styles.flexRow : styles.flexColumn, styles.mb5]}>
+                    <View
+                        fsClass={UNMASK}
+                        style={[isMediumOrLargerScreenWidth ? styles.flexRow : styles.flexColumn, styles.mb5]}
+                    >
                         <Text style={[styles.textHeadlineH1, styles.textXXLarge]}>{translate('onboarding.whereYouWork')}</Text>
                     </View>
-                    <View style={styles.mb4}>
+                    <View
+                        fsClass={UNMASK}
+                        style={styles.mb4}
+                    >
                         <InputWrapper
                             InputComponent={TextInput}
                             ref={inputCallbackRef}

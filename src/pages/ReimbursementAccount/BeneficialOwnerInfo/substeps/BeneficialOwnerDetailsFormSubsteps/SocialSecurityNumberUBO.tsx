@@ -11,6 +11,7 @@ import useLocalize from '@hooks/useLocalize';
 import useReimbursementAccountStepFormSubmit from '@hooks/useReimbursementAccountStepFormSubmit';
 import type {SubStepProps} from '@hooks/useSubStep/types';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import * as ValidationUtils from '@libs/ValidationUtils';
 import CONST from '@src/CONST';
 import ONYXKEYS from '@src/ONYXKEYS';
@@ -59,7 +60,7 @@ function SocialSecurityNumberUBO({reimbursementAccountDraft, onNext, isEditing, 
             <View>
                 <Text style={[styles.textHeadlineLineHeightXXL, styles.mb3]}>{translate('beneficialOwnerInfoStep.enterTheLast4')}</Text>
                 <Text style={[styles.textSupporting]}>{translate('beneficialOwnerInfoStep.dontWorry')}</Text>
-                <View style={[styles.flex1]}>
+                <View fsClass={UNMASK} style={[styles.flex1]}>
                     <InputWrapper
                         InputComponent={TextInput}
                         inputID={ssnLast4InputID}

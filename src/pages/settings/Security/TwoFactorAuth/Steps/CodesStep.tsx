@@ -14,6 +14,7 @@ import useLocalize from '@hooks/useLocalize';
 import useResponsiveLayout from '@hooks/useResponsiveLayout';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import Clipboard from '@libs/Clipboard';
 import localFileDownload from '@libs/localFileDownload';
 import type {BackToParams} from '@libs/Navigation/types';
@@ -63,17 +64,17 @@ function CodesStep({account, backTo}: CodesStepProps) {
                     containerStyles={[styles.twoFactorAuthSection]}
                     iconContainerStyles={[styles.ml6]}
                 >
-                    <View style={styles.mv3}>
+                    <View fsClass={UNMASK} style={styles.mv3}>
                         <Text>{translate('twoFactorAuth.codesLoseAccess')}</Text>
                     </View>
-                    <View style={styles.twoFactorAuthCodesBox({isExtraSmallScreenWidth, isSmallScreenWidth})}>
+                    <View fsClass={UNMASK} style={styles.twoFactorAuthCodesBox({isExtraSmallScreenWidth, isSmallScreenWidth})}>
                         {account?.isLoading ? (
-                            <View style={styles.twoFactorLoadingContainer}>
+                            <View fsClass={UNMASK} style={styles.twoFactorLoadingContainer}>
                                 <ActivityIndicator color={theme.spinner} />
                             </View>
                         ) : (
                             <>
-                                <View style={styles.twoFactorAuthCodesContainer}>
+                                <View fsClass={UNMASK} style={styles.twoFactorAuthCodesContainer}>
                                     {!!account?.recoveryCodes &&
                                         account?.recoveryCodes?.split(', ').map((code) => (
                                             <Text
@@ -84,7 +85,7 @@ function CodesStep({account, backTo}: CodesStepProps) {
                                             </Text>
                                         ))}
                                 </View>
-                                <View style={styles.twoFactorAuthCodesButtonsContainer}>
+                                <View fsClass={UNMASK} style={styles.twoFactorAuthCodesButtonsContainer}>
                                     <PressableWithDelayToggle
                                         text={translate('twoFactorAuth.copy')}
                                         textChecked={translate('common.copied')}

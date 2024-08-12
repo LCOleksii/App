@@ -13,6 +13,7 @@ import Text from '@components/Text';
 import TextLink from '@components/TextLink';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import {getLastFourDigits} from '@libs/BankAccountUtils';
 import * as CardUtils from '@libs/CardUtils';
 import Navigation from '@navigation/Navigation';
@@ -52,7 +53,7 @@ function WorkspaceSettlementAccountPage({route}: WorkspaceSettlementAccountPageP
                 value: bankAccount.accountData?.bankAccountID,
                 text: bankAccount.title,
                 leftElement: icon && (
-                    <View style={[styles.flexRow, styles.alignItemsCenter, styles.mr3]}>
+                    <View fsClass={UNMASK} style={[styles.flexRow, styles.alignItemsCenter, styles.mr3]}>
                         <Icon
                             src={icon}
                             width={iconSize}

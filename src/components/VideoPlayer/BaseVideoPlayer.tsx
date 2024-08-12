@@ -21,6 +21,7 @@ import useNetwork from '@hooks/useNetwork';
 import useThemeStyles from '@hooks/useThemeStyles';
 import addEncryptedAuthTokenToURL from '@libs/addEncryptedAuthTokenToURL';
 import * as DeviceCapabilities from '@libs/DeviceCapabilities';
+import {EXCLUDE} from '@libs/Fullstory';
 import CONST from '@src/CONST';
 import shouldReplayVideo from './shouldReplayVideo';
 import type {VideoPlayerProps, VideoWithOnFullScreenUpdate} from './types';
@@ -399,7 +400,7 @@ function BaseVideoPlayer({
                                     </>
                                 ) : (
                                     <View
-                                        fsClass="fs-exclude"
+                                        fsClass={EXCLUDE}
                                         style={styles.flex1}
                                         ref={(el) => {
                                             if (!el) {

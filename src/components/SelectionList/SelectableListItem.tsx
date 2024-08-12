@@ -4,6 +4,7 @@ import PressableWithFeedback from '@components/Pressable/PressableWithFeedback';
 import SelectCircle from '@components/SelectCircle';
 import TextWithTooltip from '@components/TextWithTooltip';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import CONST from '@src/CONST';
 import BaseListItem from './BaseListItem';
 import type {InviteMemberListItemProps, ListItem} from './types';
@@ -46,8 +47,8 @@ function SelectableListItem<TItem extends ListItem>({
             shouldSyncFocus={shouldSyncFocus}
         >
             <>
-                <View style={[styles.flex1, styles.flexColumn, styles.justifyContentCenter, styles.alignItemsStretch, styles.optionRow]}>
-                    <View style={[styles.flexRow, styles.alignItemsCenter]}>
+                <View fsClass={UNMASK} style={[styles.flex1, styles.flexColumn, styles.justifyContentCenter, styles.alignItemsStretch, styles.optionRow]}>
+                    <View fsClass={UNMASK} style={[styles.flexRow, styles.alignItemsCenter]}>
                         <TextWithTooltip
                             shouldShowTooltip={showTooltip}
                             text={item.text ?? ''}

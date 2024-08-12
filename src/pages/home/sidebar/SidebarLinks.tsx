@@ -9,6 +9,7 @@ import useLocalize from '@hooks/useLocalize';
 import useResponsiveLayout from '@hooks/useResponsiveLayout';
 import useStyleUtils from '@hooks/useStyleUtils';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import KeyboardShortcut from '@libs/KeyboardShortcut';
 import Navigation from '@libs/Navigation/Navigation';
 import onyxSubscribe from '@libs/onyxSubscribe';
@@ -129,8 +130,11 @@ function SidebarLinks({onLinkClick, insets, optionListItems, isLoading, priority
     const contentContainerStyles = useMemo(() => StyleSheet.flatten([styles.sidebarListContainer, {paddingBottom: StyleUtils.getSafeAreaMargins(insets).marginBottom}]), [insets]);
 
     return (
-        <View style={[styles.flex1, styles.h100]}>
-            <View style={[styles.pRelative, styles.flex1]}>
+        <View fsClass={UNMASK} style={[styles.flex1, styles.h100]}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.pRelative, styles.flex1]}
+            >
                 <LHNOptionsList
                     style={styles.flex1}
                     contentContainerStyles={contentContainerStyles}
@@ -141,7 +145,10 @@ function SidebarLinks({onLinkClick, insets, optionListItems, isLoading, priority
                     onFirstItemRendered={App.setSidebarLoaded}
                 />
                 {isLoading && optionListItems?.length === 0 && (
-                    <View style={[StyleSheet.absoluteFillObject, styles.appBG]}>
+                    <View
+                        fsClass={UNMASK}
+                        style={[StyleSheet.absoluteFillObject, styles.appBG]}
+                    >
                         <OptionsListSkeletonView shouldAnimate />
                     </View>
                 )}

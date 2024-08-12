@@ -8,6 +8,7 @@ import Tooltip from '@components/Tooltip';
 import useLocalize from '@hooks/useLocalize';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import interceptAnonymousUser from '@libs/interceptAnonymousUser';
 import * as App from '@userActions/App';
 import CONST from '@src/CONST';
@@ -18,8 +19,11 @@ function WorkspacesSectionHeader() {
     const {translate} = useLocalize();
 
     return (
-        <View style={[styles.ph5, styles.flexRow, styles.justifyContentBetween, styles.alignItemsCenter, styles.mv2]}>
-            <View>
+        <View
+            fsClass={UNMASK}
+            style={[styles.ph5, styles.flexRow, styles.justifyContentBetween, styles.alignItemsCenter, styles.mv2]}
+        >
+            <View fsClass={UNMASK}>
                 <Text
                     style={styles.label}
                     color={theme.textSupporting}

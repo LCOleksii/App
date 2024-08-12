@@ -6,6 +6,7 @@ import ImageSVG from '@components/ImageSVG';
 import Text from '@components/Text';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import CONST from '@src/CONST';
 
 type ReceiptDropUIProps = {
@@ -21,8 +22,11 @@ function ReceiptDropUI({onDrop, receiptImageTopPosition = 0}: ReceiptDropUIProps
     const {translate} = useLocalize();
     return (
         <DragAndDropConsumer onDrop={onDrop}>
-            <View style={[styles.receiptDropOverlay, styles.w100, styles.h100, styles.justifyContentCenter, styles.alignItemsCenter]}>
-                <View style={styles.receiptImageWrapper(receiptImageTopPosition)}>
+            <View fsClass={UNMASK} style={[styles.receiptDropOverlay, styles.w100, styles.h100, styles.justifyContentCenter, styles.alignItemsCenter]}>
+                <View
+                    fsClass={UNMASK}
+                    style={styles.receiptImageWrapper(receiptImageTopPosition)}
+                >
                     <ImageSVG
                         src={ReceiptUpload}
                         contentFit="contain"

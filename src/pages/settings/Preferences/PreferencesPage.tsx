@@ -13,6 +13,7 @@ import Text from '@components/Text';
 import useLocalize from '@hooks/useLocalize';
 import useResponsiveLayout from '@hooks/useResponsiveLayout';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import LocaleUtils from '@libs/LocaleUtils';
 import Navigation from '@libs/Navigation/Navigation';
 import * as User from '@userActions/User';
@@ -43,7 +44,7 @@ function PreferencesPage() {
                 onBackButtonPress={() => Navigation.goBack()}
             />
             <ScrollView contentContainerStyle={styles.pt3}>
-                <View style={[styles.flex1, shouldUseNarrowLayout ? styles.workspaceSectionMobile : styles.workspaceSection]}>
+                <View fsClass={UNMASK}  style={[styles.flex1, shouldUseNarrowLayout ? styles.workspaceSectionMobile : styles.workspaceSection]}>
                     <Section
                         title={translate('preferencesPage.appSection.title')}
                         subtitle={translate('preferencesPage.appSection.subtitle')}
@@ -52,18 +53,18 @@ function PreferencesPage() {
                         illustration={LottieAnimations.PreferencesDJ}
                         titleStyles={styles.accountSettingsSectionTitle}
                     >
-                        <View style={[styles.flex1, styles.mt5]}>
+                        <View fsClass={UNMASK}  style={[styles.flex1, styles.mt5]}>
                             <Text
                                 style={[styles.textLabelSupporting, styles.mb2]}
                                 numberOfLines={1}
                             >
                                 {translate('common.notifications')}
                             </Text>
-                            <View style={[styles.flexRow, styles.mb4, styles.justifyContentBetween, styles.sectionMenuItemTopDescription]}>
-                                <View style={styles.flex4}>
+                            <View fsClass={UNMASK}  style={[styles.flexRow, styles.mb4, styles.justifyContentBetween, styles.sectionMenuItemTopDescription]}>
+                                <View fsClass={UNMASK}  style={styles.flex4}>
                                     <Text>{translate('preferencesPage.receiveRelevantFeatureUpdatesAndExpensifyNews')}</Text>
                                 </View>
-                                <View style={[styles.flex1, styles.alignItemsEnd]}>
+                                <View fsClass={UNMASK}  style={[styles.flex1, styles.alignItemsEnd]}>
                                     <Switch
                                         accessibilityLabel={translate('preferencesPage.receiveRelevantFeatureUpdatesAndExpensifyNews')}
                                         isOn={user?.isSubscribedToNewsletter ?? true}
@@ -71,11 +72,11 @@ function PreferencesPage() {
                                     />
                                 </View>
                             </View>
-                            <View style={[styles.flexRow, styles.mb4, styles.justifyContentBetween]}>
-                                <View style={styles.flex4}>
+                            <View fsClass={UNMASK}  style={[styles.flexRow, styles.mb4, styles.justifyContentBetween]}>
+                                <View fsClass={UNMASK} style={styles.flex4}>
                                     <Text>{translate('preferencesPage.muteAllSounds')}</Text>
                                 </View>
-                                <View style={[styles.flex1, styles.alignItemsEnd]}>
+                                <View fsClass={UNMASK} style={[styles.flex1, styles.alignItemsEnd]}>
                                     <Switch
                                         accessibilityLabel={translate('preferencesPage.muteAllSounds')}
                                         isOn={user?.isMutedAllSounds ?? false}

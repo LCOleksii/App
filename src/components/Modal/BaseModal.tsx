@@ -11,6 +11,7 @@ import useStyleUtils from '@hooks/useStyleUtils';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
 import useWindowDimensions from '@hooks/useWindowDimensions';
+import {UNMASK} from '@libs/Fullstory';
 import ComposerFocusManager from '@libs/ComposerFocusManager';
 import Overlay from '@libs/Navigation/AppNavigator/Navigators/Overlay';
 import useNativeDriver from '@libs/useNativeDriver';
@@ -212,6 +213,7 @@ function BaseModal(
     return (
         <ModalContext.Provider value={modalContextValue}>
             <View
+                fsClass={UNMASK}
                 // this is a workaround for modal not being visible on the new arch in some cases
                 // it's necessary to have a non-collapseable view as a parent of the modal to prevent
                 // a conflict between RN core and Reanimated shadow tree operations
@@ -263,6 +265,7 @@ function BaseModal(
                             initialFocus={initialFocus}
                         >
                             <View
+                                fsClass={UNMASK}
                                 style={[styles.defaultModalContainer, modalPaddingStyles, modalContainerStyle, !isVisible && styles.pointerEventsNone]}
                                 ref={ref}
                             >

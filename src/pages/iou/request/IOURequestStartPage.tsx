@@ -12,6 +12,7 @@ import usePermissions from '@hooks/usePermissions';
 import usePolicy from '@hooks/usePolicy';
 import useThemeStyles from '@hooks/useThemeStyles';
 import * as DeviceCapabilities from '@libs/DeviceCapabilities';
+import {UNMASK} from '@libs/Fullstory';
 import * as KeyDownPressListener from '@libs/KeyboardShortcut/KeyDownPressListener';
 import Navigation from '@libs/Navigation/Navigation';
 import OnyxTabNavigator, {TopTab} from '@libs/Navigation/OnyxTabNavigator';
@@ -127,7 +128,10 @@ function IOURequestStartPage({
                         setIsDraggingOver={setIsDraggingOver}
                         isDisabled={selectedTab !== CONST.TAB_REQUEST.SCAN}
                     >
-                        <View style={[styles.flex1, safeAreaPaddingBottomStyle]}>
+                        <View
+                            fsClass={UNMASK}
+                            style={[styles.flex1, safeAreaPaddingBottomStyle]}
+                        >
                             <HeaderWithBackButton
                                 title={tabTitles[iouType]}
                                 onBackButtonPress={navigateBack}

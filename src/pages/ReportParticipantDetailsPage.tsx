@@ -17,6 +17,7 @@ import useCurrentUserPersonalDetails from '@hooks/useCurrentUserPersonalDetails'
 import useLocalize from '@hooks/useLocalize';
 import useStyleUtils from '@hooks/useStyleUtils';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import * as Report from '@libs/actions/Report';
 import * as ReportUtils from '@libs/ReportUtils';
 import Navigation from '@navigation/Navigation';
@@ -80,8 +81,14 @@ function ReportParticipantDetails({personalDetails, report, route}: ReportPartic
                 title={displayName}
                 onBackButtonPress={() => Navigation.goBack(backTo)}
             />
-            <View style={[styles.containerWithSpaceBetween, styles.pointerEventsBoxNone, styles.justifyContentStart]}>
-                <View style={[styles.avatarSectionWrapper, styles.pb0]}>
+            <View
+                fsClass={UNMASK}
+                style={[styles.containerWithSpaceBetween, styles.pointerEventsBoxNone, styles.justifyContentStart]}
+            >
+                <View
+                    fsClass={UNMASK}
+                    style={[styles.avatarSectionWrapper, styles.pb0]}
+                >
                     <Avatar
                         containerStyles={[styles.avatarXLarge, styles.mv5, styles.noOutline]}
                         imageStyles={[styles.avatarXLarge]}
@@ -123,7 +130,10 @@ function ReportParticipantDetails({personalDetails, report, route}: ReportPartic
                         </>
                     )}
                 </View>
-                <View style={styles.w100}>
+                <View
+                    fsClass={UNMASK}
+                    style={styles.w100}
+                >
                     {isCurrentUserAdmin && (
                         <OfflineWithFeedback pendingAction={member?.pendingFields?.role ?? null}>
                             <MenuItemWithTopDescription

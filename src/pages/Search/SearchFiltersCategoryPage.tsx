@@ -11,6 +11,7 @@ import SelectableListItem from '@components/SelectionList/SelectableListItem';
 import useDebouncedState from '@hooks/useDebouncedState';
 import useLocalize from '@hooks/useLocalize';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import localeCompare from '@libs/LocaleCompare';
 import type {CategorySection} from '@libs/OptionsListUtils';
 import type {OptionData} from '@libs/ReportUtils';
@@ -135,7 +136,7 @@ function SearchFiltersCategoryPage() {
                         Navigation.goBack(ROUTES.SEARCH_ADVANCED_FILTERS);
                     }}
                 />
-                <View style={[styles.flex1, styles.pb5]}>
+                <View fsClass={UNMASK} style={[styles.flex1, styles.pb5]}>
                     <SelectionList
                         sections={sections}
                         textInputValue={searchTerm}

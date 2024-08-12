@@ -10,6 +10,7 @@ import useLocalize from '@hooks/useLocalize';
 import useStyleUtils from '@hooks/useStyleUtils';
 import useTheme from '@hooks/useTheme';
 import useThemeStyles from '@hooks/useThemeStyles';
+import {UNMASK} from '@libs/Fullstory';
 import colors from '@styles/theme/colors';
 import CONST from '@src/CONST';
 import type LocationErrorMessageProps from './types';
@@ -32,14 +33,14 @@ function BaseLocationErrorMessage({onClose, onAllowLocationLinkPress, locationEr
     const isPermissionDenied = locationErrorCode === 1;
 
     return (
-        <View style={[styles.dotIndicatorMessage, styles.mt4]}>
-            <View style={styles.offlineFeedback.errorDot}>
+        <View fsClass={UNMASK} style={[styles.dotIndicatorMessage, styles.mt4]}>
+            <View fsClass={UNMASK} style={styles.offlineFeedback.errorDot}>
                 <Icon
                     src={Expensicons.DotIndicator}
                     fill={colors.red}
                 />
             </View>
-            <View style={styles.offlineFeedback.textContainer}>
+            <View fsClass={UNMASK} style={styles.offlineFeedback.textContainer}>
                 {isPermissionDenied ? (
                     <Text>
                         <Text style={[StyleUtils.getDotIndicatorTextStyles()]}>{`${translate('location.permissionDenied')} ${translate('location.please')}`}</Text>
